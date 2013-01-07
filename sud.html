@@ -1,0 +1,168 @@
+<html>
+
+<head>
+<title>Registration Form Example</title>
+<style>
+form { width: 400px; }
+label { float: right; width: 150px; }
+input[type=text] { float: right; width: 250px;}
+input[type=password] { float: right; width: 250px;
+.clear { clear: both; height: 0; line-height: 0; }
+.floatright { float: right; }
+</style>
+<script>
+function Validate()
+{
+    var fname = document.Regform.Fname;
+    var lname = document.Regform.Lname;
+    var uname = document.Regform.Uname;
+    var pass = document.Regform.Pass;
+    var cpass = document.Regform.Cpass;
+    var email = document.Regform.Email;
+    var add = document.Regform.Address;
+    var cnt = document.Regform.Cnt;
+    var tc = document.Regform.tc;
+
+    if (fname.value == "")
+    {
+        window.alert("Please enter your first name.");
+        fname.focus();
+        return false;
+    }
+	
+    if (lname.value == "")
+    {
+        window.alert("Please enter your last name.");
+        lname.focus();
+        return false;
+    }
+       
+    if (uname.value == "")
+    {
+        window.alert("Please enter user name.");
+        uname.focus();
+        return false;
+    }
+    
+    if (pass.value == "")
+    {
+        window.alert("Please enter password");
+        pass.focus();
+        return false;
+    }
+    if (cpass.value == "")
+    {
+        window.alert("Please enter confirm password.");
+        cpass.focus();
+        return false;
+    }
+       if (cpass.value !=pass.value)
+    {
+        window.alert("Password Doesnt match");
+       
+        return false;
+    }
+    
+    
+    if (email.value == "")
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf("@", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf(".", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+    if (cnt.value == "")
+    {
+        window.alert("Please enter your contact number.");
+        cnt.focus();
+        return false;
+    }
+    if (tc.checked == 0)
+    {
+        window.alert("Please Accept Terms and Condition.");
+        tc.focus();
+        return false;
+    }
+
+
+    return true;
+}
+
+       function valChar(evt)
+      {
+         var code = (evt.which) ? evt.which : event.keyCode
+         if (code > 31 && (code < 48 || code > 57) && (code < 65 || code > 90) && (code < 97 || code > 122))
+            return false;
+
+         return true;
+      }
+
+
+   function valNo(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+</script>
+</head>
+<body>
+<center><font color="black"><h2>Registration Form</h2>
+
+<form method="post" name="Regform" onSubmit="return Validate();">
+<table border=1>
+<tr>
+	<td>First Name:</td>
+        <td> <input type="text" AutoCompleteType="Disabled" onkeypress="return valChar(event)"  name="Fname"></td>
+</tr>
+<tr>
+	<td>Last Name:</td>
+        <td><input type="text" onkeypress="return valChar(event)"  name="Lname"></td>
+</tr>
+<tr>
+	<td>User Name:</td>
+        <td><input type="text" onkeypress="return valChar(event)"  name="Uname"></td>
+</tr>
+<tr>
+	<td>Password:</td>
+        <td><input type="password" onkeypress="return valChar(event)" name="Pass"></tdr>
+</tr>
+<tr>
+	<td>Confirm Password:</td>
+        <td><input type="password" onkeypress="return valChar(event)" size="65" name="Cpass"></td>
+</tr>
+<tr>
+	<td>Email:</td>
+        <td><input type="text" AutoCompleteType="Disabled" name="Email"></td>
+</tr>
+<tr>
+	<td>Address:</td>
+        <td><textarea cols="55" name="Address"></textarea></td>
+</tr>
+<tr>
+	<td>Contact:</td>
+        <td><input type="text" onkeypress="return valNo(event)" name="Cnt"></td>
+</tr>
+<tr>
+  <td><input type="checkbox" name="tc"></td><td>Terms and Condition:</td>
+</tr>
+  </table>
+<input type="submit" value="Send" name="submit">
+ </form>
+
+</body>
+</html>
